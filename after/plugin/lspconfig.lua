@@ -56,6 +56,8 @@ require('mason-lspconfig').setup({
 -- require('lspconfig').astro.setup {}
 lsp_zero.setup_servers({ 'astro' })
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 local luasnip = require('luasnip')
