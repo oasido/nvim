@@ -82,8 +82,8 @@ return require("packer").startup(function(use)
 	})
 
 	-- Completion and LSP
-	-- use({ "zbirenbaum/copilot.lua" })
-	-- use({ "zbirenbaum/copilot-cmp", after = { "copilot.lua" } })
+	use({ "zbirenbaum/copilot.lua" })
+	use({ "zbirenbaum/copilot-cmp", after = { "copilot.lua" } })
 	use({
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
