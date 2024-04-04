@@ -90,6 +90,7 @@ keymap("n", "<c-z>", "<nop>")
 keymap("n", "<leader>nn", ":NoNeckPain<cr>")
 keymap("n", "<leader>ln", ":set rnu!<cr>")
 vim.cmd([[command! -nargs=0 Q quit]])
+vim.cmd('command! -nargs=0 W w')
 
 -- keymap("n", "<leader><leader>", function()
 --   vim.cmd("so")

@@ -13,103 +13,94 @@
 -- ]d: Move to the next diagnostic. See :help vim.diagnostic.goto_next().
 -- <leader>q: Show diagnostic split window.
 
-local lsp_zero = require('lsp-zero')
+local lsp_zero = require("lsp-zero")
 lsp_zero.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp_zero.default_keymaps({ buffer = bufnr })
+	-- see :help lsp-zero-keybindings
+	-- to learn the available actions
+	lsp_zero.default_keymaps({ buffer = bufnr })
 
-  -- keybindings
-  local opts = { buffer = bufnr, remap = false }
+	-- keybindings
+	local opts = { buffer = bufnr, remap = false }
 
-  vim.keymap.set("n", "<leader>e", function()
-    vim.diagnostic.open_float()
-  end, opts)
+	vim.keymap.set("n", "<leader>e", function()
+		vim.diagnostic.open_float()
+	end, opts)
 
-  vim.keymap.set("n", "<space>q", function()
-    vim.diagnostic.setloclist()
-  end, opts)
+	vim.keymap.set("n", "<space>q", function()
+		vim.diagnostic.setloclist()
+	end, opts)
 end)
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    "lua_ls",
-    "rust_analyzer",
-    "tsserver",
-    "astro",
-    "tailwindcss",
-    "marksman",
-    "cssls",
-    "jsonls",
-    "yamlls",
-  },
-  handlers = {
-    lsp_zero.default_setup,
-    lua_ls = function()
-      local lua_opts = lsp_zero.nvim_lua_ls()
-      require('lspconfig').lua_ls.setup(lua_opts)
-    end,
-  }
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"lua_ls",
+		"rust_analyzer",
+		"tsserver",
+		"astro",
+		"tailwindcss",
+		"marksman",
+		"cssls",
+		"jsonls",
+		"yamlls",
+	},
+	handlers = {
+		lsp_zero.default_setup,
+		lua_ls = function()
+			local lua_opts = lsp_zero.nvim_lua_ls()
+			require("lspconfig").lua_ls.setup(lua_opts)
+		end,
+	},
 })
 
--- require('lspconfig').astro.setup {}
-lsp_zero.setup_servers({ 'astro' })
+lsp_zero.setup_servers({ "astro" })
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
-local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
-local luasnip = require('luasnip')
+local cmp = require("cmp")
+local cmp_action = require("lsp-zero").cmp_action()
+local luasnip = require("luasnip")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 cmp.setup({
-  sources = {
-    -- { name = 'copilot' },
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'path' },
-    { name = 'nvim_lua' },
-  },
-  formatting = lsp_zero.cmp_format(),
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    -- scroll up and down the documentation window
-    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-d>'] = cmp.mapping.scroll_docs(4),
-    ["<CR>"] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    }),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   elseif luasnip.expand_or_jumpable() then
-    --     luasnip.expand_or_jump()
-    --   else
-    --     fallback()
-    --   end
-    -- end, { "i", "s" }),
-    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   elseif luasnip.jumpable(-1) then
-    --     luasnip.jump(-1)
-    --   else
-    --     fallback()
-    --   end
-    -- end, { "i", "s" }),
-    ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
-
-    -- Navigate between snippet placeholder
-    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-
-  }),
+	sources = {
+		-- { name = 'copilot' },
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+		{ name = "path" },
+		{ name = "nvim_lua" },
+	},
+	formatting = lsp_zero.cmp_format(),
+	snippet = {
+		expand = function(args)
+			luasnip.lsp_expand(args.body)
+		end,
+	},
+	window = {
+		-- completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+	-- mapping = cmp.mapping.preset.insert({
+	-- 	-- scroll up and down the documentation window
+	-- 	["<C-u>"] = cmp.mapping.scroll_docs(-4),
+	-- 	["<C-d>"] = cmp.mapping.scroll_docs(4),
+	-- 	["<CR>"] = cmp.mapping.confirm({
+	-- 		behavior = cmp.ConfirmBehavior.Replace,
+	-- 		select = true,
+	-- 	}),
+	-- 	["<C-Space>"] = cmp.mapping.complete(),
+	-- 	["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
+	-- 	["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
+	--
+	-- 	-- Navigate between snippet placeholder
+	-- 	["<C-f>"] = cmp_action.luasnip_jump_forward(),
+	-- 	["<C-b>"] = cmp_action.luasnip_jump_backward(),
+	-- }),
+	mapping = cmp.mapping.preset.insert({
+		["<C-b>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.abort(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	}),
 })
