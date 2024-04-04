@@ -80,27 +80,27 @@ cmp.setup({
 		-- completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
-	-- mapping = cmp.mapping.preset.insert({
-	-- 	-- scroll up and down the documentation window
-	-- 	["<C-u>"] = cmp.mapping.scroll_docs(-4),
-	-- 	["<C-d>"] = cmp.mapping.scroll_docs(4),
-	-- 	["<CR>"] = cmp.mapping.confirm({
-	-- 		behavior = cmp.ConfirmBehavior.Replace,
-	-- 		select = true,
-	-- 	}),
-	-- 	["<C-Space>"] = cmp.mapping.complete(),
-	-- 	["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
-	-- 	["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
-	--
-	-- 	-- Navigate between snippet placeholder
-	-- 	["<C-f>"] = cmp_action.luasnip_jump_forward(),
-	-- 	["<C-b>"] = cmp_action.luasnip_jump_backward(),
-	-- }),
 	mapping = cmp.mapping.preset.insert({
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		-- scroll up and down the documentation window
+		["<C-u>"] = cmp.mapping.scroll_docs(-4),
+		["<C-d>"] = cmp.mapping.scroll_docs(4),
+		["<CR>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		}),
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
+		["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
+
+		-- Navigate between snippet placeholder
+		["<C-f>"] = cmp_action.luasnip_jump_forward(),
+		["<C-b>"] = cmp_action.luasnip_jump_backward(),
 	}),
+	-- mapping = cmp.mapping.preset.insert({
+	-- 	["<C-b>"] = cmp.mapping.scroll_docs(-4),
+	-- 	["<C-f>"] = cmp.mapping.scroll_docs(4),
+	-- 	["<C-Space>"] = cmp.mapping.complete(),
+	-- 	["<C-e>"] = cmp.mapping.abort(),
+	-- 	["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+	-- }),
 })
