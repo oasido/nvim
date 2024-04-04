@@ -27,4 +27,5 @@ require("nvim-treesitter.configs").setup({
   },
 })
 
+vim.cmd([[TSContextDisable]]) -- auto disable ts context
 vim.keymap.set("n", "<leader>tsc", ":TSContextToggle<CR>")
