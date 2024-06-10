@@ -43,6 +43,8 @@ require("mason-lspconfig").setup({
 		"cssls",
 		"jsonls",
 		"yamlls",
+		"intelephense",
+		"gopls",
 	},
 	handlers = {
 		lsp_zero.default_setup,
@@ -65,6 +67,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 cmp.setup({
 	sources = {
 		-- { name = 'copilot' },
+		{ name = "lsp_zero" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },

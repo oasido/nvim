@@ -84,7 +84,7 @@ return require("packer").startup(function(use)
   -- Completion and LSP
   -- use({ "zbirenbaum/copilot.lua" })
   -- use({ "zbirenbaum/copilot-cmp", after = { "copilot.lua" } })
-  use("github/copilot.vim")
+  -- use("github/copilot.vim")
   use("CopilotC-Nvim/CopilotChat.nvim")
   use({
     "VonHeikemen/lsp-zero.nvim",

@@ -17,6 +17,6 @@ conform.setup({
 		go = { "goimports", "gofmt" },
 		graphql = { prettier },
 		sh = { "shfmt" },
-		python = { "isort", "black" },
+		python = { "black" },
 	},
 })
