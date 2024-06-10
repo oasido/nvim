@@ -12,6 +12,7 @@ return {
   cmd = 'Neotree',
   keys = {
     { '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal' } },
+    { '<leader>pv', ':Neotree position=current<CR>', { desc = 'NeoTree netrw' } },
   },
   opts = {
     filesystem = {
@@ -19,6 +20,9 @@ return {
         mappings = {
           ['\\'] = 'close_window',
         },
+      },
+      filtered_items = {
+        visible = true,
       },
     },
   },
