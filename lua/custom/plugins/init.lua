@@ -45,9 +45,13 @@ return {
   },
   {
     'mbbill/undotree',
-    config = function()
-      vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')
-    end,
+    keys = {
+      {
+        '<leader>u',
+        vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle),
+        desc = 'Toggle undotree',
+      },
+    },
     {
       'epwalsh/obsidian.nvim',
       version = '*', -- recommended, use latest release instead of latest commit
