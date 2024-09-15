@@ -1,0 +1,269 @@
+# https://github.com/deinsoftware/vscode-vitest-snippets
+# Converted to snipmate format
+
+# Import
+snippet iv "vitest: import"
+	import { it, expect, describe } from 'vitest'$0
+
+snippet ive "vitest: import with before/after/vi"
+	import { beforeEach, afterEach, it, expect, describe, vi } from 'vitest'$0
+
+# Setup
+snippet ba "vitest: beforeAll"
+	beforeAll(() => { $1 })$0
+
+snippet baa "vitest: beforeAll async"
+	beforeAll(async () => { $1 })$0
+
+snippet be "vitest: beforeEach"
+	beforeEach(() => { $1 })$0
+
+snippet bea "vitest: beforeEach async"
+	beforeEach(async () => { $1 })$0
+
+snippet ae "vitest: afterEach"
+	afterEach(() => { $1 })$0
+
+snippet aa "vitest: afterAll"
+	afterAll(() => { $1 })$0
+
+# Describe
+snippet d "vitest: describe"
+	describe('${1:group}', () => { $2 })$0
+
+snippet desc "vitest: describe"
+	describe('${1:group}', () => { $2 })$0
+
+snippet do "vitest: describe.only"
+	describe.only('${1:group}', () => { $2 })$0
+
+snippet ds "vitest: describe.skip"
+	describe.skip('${1:group}', () => { $2 })$0
+
+# Mock
+snippet aevcr "vitest: afterEach clear and reset mocks"
+	afterEach(() => { 
+		vi.clearAllMocks()
+		vi.resetAllMocks()
+	})$0
+
+snippet vm "vitest: vi.mock"
+	vi.mock('${1:path}')$0
+
+snippet vmrv "vitest: vi.mock with mockResolvedValue"
+	vi.mock('${1:path}').mockResolvedValue($2)$0
+
+snippet vf "vitest: vi.fn()"
+	vi.fn()$0
+
+snippet vfrv "vitest: vi.fn() with mockResolvedValue"
+	vi.fn().mockResolvedValue($1)$0
+
+snippet cf "vitest: const mock"
+	const ${1:name}Mock = vi.fn()$0
+
+snippet cfrv "vitest: const mock with mockResolvedValue"
+	const ${1:name}Mock = vi.fn().mockResolvedValue($2)$0
+
+snippet mrv "vitest: mockReturnValue"
+	${1:mock}.mockReturnValue($2)$0
+
+snippet mrvo "vitest: mockReturnValueOnce"
+	${1:mock}.mockReturnValueOnce($2)$0
+
+snippet vs "vitest: vi.spyOn"
+	vi.spyOn(${1:global}, '${2:method}')$0
+
+snippet vsi "vitest: vi.spyOn with mockImplementation"
+	vi.spyOn(${1:global}, '${2:method}').mockImplementation(() => $3)$0
+
+snippet cs "vitest: const spy"
+	const ${1:method}Spy = vi.spyOn(${2:global}, '${3:method}')$0
+
+snippet csi "vitest: const spy with mockImplementation"
+	const ${1:method}Spy = vi.spyOn(${2:global}, '${3:method}').mockImplementation(() => $4)$0
+
+# It
+snippet i "vitest: it"
+	it('${1:should}', () => { $2 })$0
+
+snippet it "vitest: it"
+	it('${1:should}', () => { $2 })$0
+
+snippet io "vitest: it.only"
+	it.only('${1:should}', () => { $2 })$0
+
+snippet is "vitest: it.skip"
+	it.skip('${1:should}', () => { $2 })$0
+
+snippet itd "vitest: it.todo"
+	it.todo('${1:should}')$0
+
+snippet ia "vitest: it async"
+	it('${1:should}', async () => { $2 })$0
+
+# Test
+snippet t "vitest: test"
+	test('${1:should}', () => { $2 })$0
+
+snippet to "vitest: test.only"
+	test.only('${1:should}', () => { $2 })$0
+
+snippet ts "vitest: test.skip"
+	test.skip('${1:should}', () => { $2 })$0
+
+snippet ttd "vitest: test.todo"
+	test.todo('${1:should}')$0
+
+snippet ta "vitest: test async"
+	test('${1:should}', async () => { $2 })$0
+
+# Expect
+snippet e "vitest: expect"
+	expect($1)$0
+
+snippet ea "vitest: expect.assertions"
+	expect.assertions($1)$0
+
+snippet eha "vitest: expect.hasAssertions"
+	expect.hasAssertions()$0
+
+snippet erj "vitest: expect.rejects"
+	expect($1).rejects$0
+
+snippet ers "vitest: expect.resolves"
+	expect($1).resolves$0
+
+# Any
+snippet eav "vitest: expect.any"
+	expect.any($1)$0
+
+snippet eas "vitest: expect.any(String)"
+	expect.any(String)$0
+
+snippet ean "vitest: expect.any(Number)"
+	expect.any(Number)$0
+
+snippet eab "vitest: expect.any(Boolean)"
+	expect.any(Boolean)$0
+
+snippet ead "vitest: expect.any(Date)"
+	expect.any(Date)$0
+
+snippet eaf "vitest: expect.any(Function)"
+	expect.any(Function)$0
+
+snippet eaa "vitest: expect.any(Array)"
+	expect.any(Array)$0
+
+snippet eat "vitest: expect.anything()"
+	expect.anything()$0
+
+# Assertion
+snippet tb "vitest: toBe"
+	expect($1).toBe($2)$0
+
+snippet tbct "vitest: toBeCloseTo"
+	expect($1).toBeCloseTo($2, $3)$0
+
+snippet tbd "vitest: toBeDefined"
+	expect($1).toBeDefined()$0
+
+snippet tbf "vitest: toBeFalsy"
+	expect($1).toBeFalsy()$0
+
+snippet tbgt "vitest: toBeGreaterThan"
+	expect($1).toBeGreaterThan($2)$0
+
+snippet tbgte "vitest: toBeGreaterThanOrEqual"
+	expect($1).toBeGreaterThanOrEqual($2)$0
+
+snippet tbid "vitest: toBeInTheDocument"
+	expect($1).toBeInTheDocument()$0
+
+snippet tbi "vitest: toBeInstanceOf"
+	expect($1).toBeInstanceOf($2)$0
+
+snippet tblt "vitest: toBeLessThan"
+	expect($1).toBeLessThan($2)$0
+
+snippet tblte "vitest: toBeLessThanOrEqual"
+	expect($1).toBeLessThanOrEqual($2)$0
+
+snippet tbn "vitest: toBeNull"
+	expect($1).toBeNull()$0
+
+snippet tbt "vitest: toBeTruthy"
+	expect($1).toBeTruthy()$0
+
+snippet tbu "vitest: toBeUndefined"
+	expect($1).toBeUndefined()$0
+
+snippet tc "vitest: toContain"
+	expect($1).toContain($2)$0
+
+snippet tce "vitest: toContainEqual"
+	expect($1).toContainEqual($2)$0
+
+snippet te "vitest: toEqual"
+	expect($1).toEqual($2)$0
+
+snippet thbc "vitest: toHaveBeenCalled"
+	expect($1).toHaveBeenCalled()$0
+
+snippet thbct "vitest: toHaveBeenCalledTimes"
+	expect($1).toHaveBeenCalledTimes($2)$0
+
+snippet thbcw "vitest: toHaveBeenCalledWith"
+	expect($1).toHaveBeenCalledWith($2)$0
+
+snippet thblcw "vitest: toHaveBeenLastCalledWith"
+	expect($1).toHaveBeenLastCalledWith($2)$0
+
+snippet thl "vitest: toHaveLength"
+	expect($1).toHaveLength($2)$0
+
+snippet thp "vitest: toHaveProperty"
+	expect($1).toHaveProperty($2, $3)$0
+
+snippet thpd "vitest: toHaveProperty('disabled')"
+	expect($1).toHaveProperty('disabled')$0
+
+snippet thps "vitest: toHaveProperty('selected')"
+	expect($1).toHaveProperty('selected')$0
+
+snippet tm "vitest: toMatch"
+	expect($1).toMatch($2)$0
+
+snippet tmis "vitest: toMatchInlineSnapshot"
+	expect($1).toMatchInlineSnapshot($2)$0
+
+snippet tmo "vitest: toMatchObject"
+	expect($1).toMatchObject($2)$0
+
+snippet tse "vitest: toStrictEqual"
+	expect($1).toStrictEqual($2)$0
+
+snippet tt "vitest: toThrow"
+	expect(() => { $1 }).toThrow($2)$0
+
+snippet tte "vitest: toThrowError"
+	expect(() => { $1 }).toThrowError($2)$0
+
+snippet ttemis "vitest: toThrowErrorMatchingInlineSnapshot"
+	expect(() => { $1 }).toThrowErrorMatchingInlineSnapshot()$0
+
+snippet ttems "vitest: toThrowErrorMatchingSnapshot"
+	expect(() => { $1 }).toThrowErrorMatchingSnapshot()$0
+
+# Skeleton
+snippet vsb "vitest: skeleton"
+	import { it, expect, describe } from 'vitest'
+
+	describe('${1:group}', () => {
+		it('${2:should}', () => {
+			const expected = '${3:expected}'
+			const actual = $1($4)
+			expect(actual).toBe(expected)$0
+		})
+	})
