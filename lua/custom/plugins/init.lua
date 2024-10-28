@@ -99,4 +99,5 @@ return {
     end,
   },
   { 'lambdalisue/suda.vim' },
+  { 'mfussenegger/nvim-jdtls' },
 }
