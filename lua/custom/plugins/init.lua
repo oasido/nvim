@@ -74,7 +74,7 @@ return {
         }
         vim.keymap.set('n', '<leader>fn', ':ObsidianSearch<CR>')
         vim.keymap.set('n', '<leader>on', ':ObsidianNew<CR>')
-        vim.opt.conceallevel = 1
+        -- vim.gpt.conceallevel = 1
       end,
     },
     {
@@ -100,4 +100,11 @@ return {
   },
   { 'lambdalisue/suda.vim' },
   { 'mfussenegger/nvim-jdtls' },
+  {
+    'lervag/vimtex',
+    lazy = false,
+    init = function()
+      vim.g.vimtex_view_method = 'zathura'
+    end,
+  },
 }
