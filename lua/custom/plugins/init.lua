@@ -71,6 +71,7 @@ return {
               path = '~/sb',
             },
           },
+          ui = { enable = false },
         }
         vim.keymap.set('n', '<leader>fn', ':ObsidianSearch<CR>')
         vim.keymap.set('n', '<leader>on', ':ObsidianNew<CR>')
