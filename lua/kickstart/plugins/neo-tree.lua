@@ -11,7 +11,7 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal' } },
+    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
     { '<leader>pv', ':Neotree position=current<CR>', { desc = 'NeoTree netrw' } },
   },
   opts = {
@@ -21,9 +21,9 @@ return {
           ['\\'] = 'close_window',
         },
       },
-      filtered_items = {
-        visible = true,
-      },
+      -- filtered_items = {
+      --   visible = true,
+      -- },
     },
   },
 }
