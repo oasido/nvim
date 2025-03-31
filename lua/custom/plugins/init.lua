@@ -95,7 +95,6 @@ return {
     'shortcuts/no-neck-pain.nvim',
     version = '*',
     config = function()
-      require('lazy').setup()
       vim.keymap.set('n', '<leader>nn', ':NoNeckPain<cr>', { desc = 'NoNeckPain: Toggle' })
     end,
   },
