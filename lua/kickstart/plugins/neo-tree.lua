@@ -11,19 +11,21 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    -- { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
     { '<leader>pv', ':Neotree position=current<CR>', { desc = 'NeoTree netrw' } },
   },
   opts = {
     filesystem = {
+      bind_to_cwd = true, -- Automatically change to the current working directory
+      filtered_items = {
+        visible = true, -- Show hidden files by default
+        hide_dotfiles = false, -- Do not hide dotfiles
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',
         },
       },
-      -- filtered_items = {
-      --   visible = true,
-      -- },
     },
   },
 }
