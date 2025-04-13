@@ -107,4 +107,36 @@ return {
       vim.g.vimtex_view_method = 'zathura'
     end,
   },
+  {
+    'stevearc/oil.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('oil').setup {
+        view_options = {
+          show_hidden = true,
+          is_always_hidden = function(name, _)
+            local always_hidden = {
+              ['node_modules'] = true,
+              ['dist'] = true,
+              ['build'] = true,
+              ['target'] = true,
+              ['venv'] = true,
+              ['__pycache__'] = true,
+              ['.git'] = true,
+              ['.DS_Store'] = true,
+            }
+            return always_hidden[name] or false
+          end,
+        },
+        keymaps = {
+          ['q'] = 'actions.close',
+          ['<BS>'] = 'actions.parent',
+          ['H'] = 'actions.toggle_hidden',
+        },
+      }
+      vim.keymap.set({ 'n', 'x' }, '<leader>pv', function()
+        require('oil').open_float()
+      end, { silent = true })
+    end,
+  },
 }
