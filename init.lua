@@ -249,6 +249,15 @@ vim.keymap.set('n', '<leader>ln', ':set rnu!<cr>', { desc = 'Toggle relative lin
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+-- ANSI C style comments in C files (For Uni)
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'c',
+  callback = function()
+    vim.bo.commentstring = '/* %s */'
+    vim.bo.comments = 's1:/*,mb:*,ex:*/'
+  end,
+})
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
@@ -714,7 +723,7 @@ require('lazy').setup({
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-        --
+
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
