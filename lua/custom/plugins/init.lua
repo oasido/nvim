@@ -154,6 +154,11 @@ return {
       vim.o.foldlevelstart = 99 -- Start with folds open
       vim.o.foldenable = true -- Enable folding
 
+      vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+      vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+      vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
+      vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith)
+
       vim.keymap.set('n', 'zE', '<Nop>', { silent = true })
 
       -- detach provider for excluded filetypes
