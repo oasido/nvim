@@ -149,6 +149,14 @@ return {
       filetype_exclude = { 'help', 'alpha', 'dashboard', 'neo-tree', 'Trouble', 'lazy', 'mason' },
     },
     config = function(_, opts)
+      vim.o.foldcolumn = '1' -- '0' is not bad
+      vim.o.foldlevel = 99 -- Using ufo provider needs a large value, feel free to decrease the value
+      vim.o.foldlevelstart = 99 -- Start with folds open
+      vim.o.foldenable = true -- Enable folding
+
+      vim.keymap.set('n', 'zE', '<Nop>', { silent = true })
+
+      -- detach provider for excluded filetypes
       vim.api.nvim_create_autocmd('FileType', {
         group = vim.api.nvim_create_augroup('local_detach_ufo', { clear = true }),
         pattern = opts.filetype_exclude,
@@ -157,7 +165,6 @@ return {
         end,
       })
 
-      vim.opt.foldlevelstart = 99
       require('ufo').setup(opts)
     end,
   },
