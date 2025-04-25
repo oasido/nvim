@@ -24,13 +24,16 @@ snippet template "Basic template" b
 	  $0
 	\end{document}
 
+
 snippet beg "Begin/end environment" b
 	\begin{${1:env}}
 	  $0
 	\end{${1:env}}
 
+
 snippet ... "Ellipsis" i
-\ldots$0
+	\ldots$0
+
 
 snippet table "Table environment" b
 	\begin{table}[${1:htpb}]
@@ -41,6 +44,7 @@ snippet table "Table environment" b
 	    $0
 	  \end{tabular}
 	\end{table}
+
 
 snippet fig "Figure environment" b
 	\begin{figure}[${1:htpb}]
@@ -56,6 +60,7 @@ snippet enum "Enumerate environment" b
 	  \item $0
 	\end{enumerate}
 
+
 snippet item "Itemize environment" b
 	\begin{itemize}
 	  \item $0
@@ -67,22 +72,28 @@ snippet desc "Description environment" b
 	  \item[${1:term}] $0
 	\end{description}
 
+
 snippet pac "Usepackage" b
 	\usepackage[${1:options}]{${2:package}}$0
+
 
 snippet => "Implies symbol" i
 	\implies$0
 
+
 snippet =< "Implied by symbol" i
 	\impliedby$0
 
+
 snippet iff "If and only if" i
 	\iff$0
+
 
 snippet dm "Display math" b
 	\[
 	  $1
 	\]$0
+
 
 snippet ali "Align* environment" b
 	\begin{align*}
@@ -90,27 +101,37 @@ snippet ali "Align* environment" b
 	\end{align*}
 	$0
 
+
 snippet // "Fraction" i
 	\frac{${1:num}}{${2:den}}$0
 
+
 snippet != "Not equal" i
 	\neq$0
+
 
 snippet == "Align equals" i
 	&= ${1} \\
 	$0
 
+
 snippet ceil "Ceiling" i
 	\left\lceil ${1:x} \right\rceil$0
+
 
 snippet floor "Floor" i
 	\left\lfloor ${1:x} \right\rfloor$0
 
+
 snippet pmat "Parentheses matrix" i
 	\begin{pmatrix} ${1} \end{pmatrix}$0
+
 
 snippet bmat "Bracket matrix" i
 	\begin{bmatrix} ${1} \end{bmatrix}$0
 
+
 snippet norm "Norm" i
 	\|${1:expr}\|$0
+
+
