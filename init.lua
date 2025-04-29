@@ -214,6 +214,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Basic
 vim.keymap.set('n', '<leader>w', '<cmd>w<cr>')
+vim.keymap.set('n', '<leader>', '<cmd>w<cr>')
 vim.keymap.set('n', '<leader>x', '<cmd>SudaWrite<cr>', { silent = true })
 
 -- Resize & split
