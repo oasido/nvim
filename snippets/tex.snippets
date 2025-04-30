@@ -60,6 +60,15 @@ snippet enum "Enumerate environment" b
 	  \item $0
 	\end{enumerate}
 
+snippet enumnn "Enumerate environment" no number
+	\begin{enumerate*}
+	  \item $0
+	\end{enumerate*}
+
+snippet enumalef "Enumerate environment" alef
+	\begin{enumerate}[label=\alph*.]
+	  \item $0
+	\end{enumerate}
 
 snippet item "Itemize environment" b
 	\begin{itemize}
@@ -94,6 +103,8 @@ snippet dm "Display math" b
 	  $1
 	\]$0
 
+snippet im "Display math" b
+	$$1$
 
 snippet ali "Align* environment" b
 	\begin{align*}
@@ -134,4 +145,6 @@ snippet bmat "Bracket matrix" i
 snippet norm "Norm" i
 	\|${1:expr}\|$0
 
+snippet gvul "Limit" n -> infty
+	\Lim_{n \to \infty} a_n${1}
 
