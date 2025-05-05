@@ -100,17 +100,17 @@ return {
   },
   { 'lambdalisue/suda.vim' },
   { 'mfussenegger/nvim-jdtls' },
-  {
-    'lervag/vimtex',
-    lazy = false,
-    init = function()
-      vim.g.tex_flavor = 'latex'
-      vim.g.vimtex_view_method = 'sioyek'
-      vim.g.vimtex_quickfix_mode = 0
-      vim.g.tex_conceal = 'abdmg'
-      vim.opt.conceallevel = 1
-    end,
-  },
+  -- {
+  --   'lervag/vimtex',
+  --   lazy = false,
+  --   init = function()
+  --     vim.g.tex_flavor = 'latex'
+  --     vim.g.vimtex_view_method = 'sioyek'
+  --     vim.g.vimtex_quickfix_mode = 0
+  --     vim.g.tex_conceal = 'abdmg'
+  --     vim.opt.conceallevel = 1
+  --   end,
+  -- },
   {
     'stevearc/oil.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
