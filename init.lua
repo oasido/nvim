@@ -828,6 +828,9 @@ require('lazy').setup({
       formatters = {
         ['clang-format'] = {
           prepend_args = { '--style={BasedOnStyle: LLVM, IndentWidth: 4}' },
+          extra_args = {
+            '--style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}',
+          },
         },
       },
     },
