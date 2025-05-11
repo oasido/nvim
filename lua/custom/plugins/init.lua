@@ -108,7 +108,7 @@ return {
   --     vim.g.vimtex_view_method = 'sioyek'
   --     vim.g.vimtex_quickfix_mode = 0
   --     vim.g.tex_conceal = 'abdmg'
-  --     vim.opt.conceallevel = 1
+  --     vim.o.conceallevel = 1
   --   end,
   -- },
   {
