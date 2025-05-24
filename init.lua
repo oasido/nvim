@@ -826,13 +826,12 @@ require('lazy').setup({
 
       formatters_by_ft = {
         lua = { 'stylua' },
-        c = { 'clang-format' },
+        c = { 'clang_format' },
       },
       formatters = {
-        ['clang-format'] = {
-          prepend_args = { '--style={BasedOnStyle: LLVM, IndentWidth: 4}' },
-          extra_args = {
-            '--style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}',
+        clang_format = {
+          prepend_args = {
+            [[--style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never, BreakBeforeBraces: Attach, AllowShortFunctionsOnASingleLine: None}]],
           },
         },
       },
