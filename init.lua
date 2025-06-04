@@ -292,12 +292,8 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  {
-    'nmac427/guess-indent.nvim',
-    config = function()
-      require('guess-indent').setup {}
-    end,
-  }, -- Detect tabstop and shiftwidth automatically
+  -- { 'nmac427/guess-indent.nvim', opts = {} }, -- Detect tabstop and shiftwidth automatically
+  { 'tpope/vim-sleuth' }, -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -823,12 +819,34 @@ require('lazy').setup({
         }
       end,
 
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        c = { 'clang_format' },
-        typescript = { 'prettier' },
-        javascript = { 'prettier' },
-      },
+      formatters_by_ft = (function()
+        local formatters = {
+          lua = { 'stylua' },
+          c = { 'clang_format' },
+        }
+
+        local web_filetypes = {
+          'typescript',
+          'javascript',
+          'typescriptreact',
+          'json',
+          'html',
+          'css',
+          'markdown',
+          'yaml',
+          'yml',
+          'astro',
+        }
+
+        local prettier_config = { 'prettierd', 'prettier', stop_after_first = true }
+
+        for _, ft in ipairs(web_filetypes) do
+          formatters[ft] = prettier_config
+        end
+
+        return formatters
+      end)(),
+
       formatters = {
         clang_format = {
           prepend_args = {
