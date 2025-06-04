@@ -129,12 +129,6 @@ vim.o.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
--- Indentation (when disabling, might want to enable sleuth plugin)
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.expandtab = true
-
 -- Keep signcolumn on by default
 vim.o.signcolumn = 'yes'
 
@@ -298,7 +292,12 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  { 'NMAC427/guess-indent.nvim', opts = {} }, -- Detect tabstop and shiftwidth automatically
+  {
+    'nmac427/guess-indent.nvim',
+    config = function()
+      require('guess-indent').setup {}
+    end,
+  }, -- Detect tabstop and shiftwidth automatically
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -827,6 +826,8 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         c = { 'clang_format' },
+        typescript = { 'prettier' },
+        javascript = { 'prettier' },
       },
       formatters = {
         clang_format = {
