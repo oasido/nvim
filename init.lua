@@ -790,7 +790,7 @@ require('lazy').setup({
       {
         '<leader>f',
         function()
-          require('conform').format { async = true, lsp_format = 'fallback' }
+          require('conform').format { async = true }
         end,
         mode = '',
         desc = '[F]ormat buffer',
@@ -806,7 +806,7 @@ require('lazy').setup({
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
         -- local disable_filetypes = { c = true, cpp = true }
-        local disable_filetypes = { cpp = true }
+        local disable_filetypes = { cpp = true, go = true }
         local lsp_format_opt
         if disable_filetypes[vim.bo[bufnr].filetype] then
           lsp_format_opt = 'never'
@@ -823,6 +823,7 @@ require('lazy').setup({
         local formatters = {
           lua = { 'stylua' },
           c = { 'clang_format' },
+          go = { 'gofumpt' },
         }
 
         local web_filetypes = {
