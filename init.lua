@@ -110,6 +110,11 @@ vim.o.mouse = 'a'
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -124,6 +129,8 @@ vim.o.breakindent = true
 -- Save undo history
 vim.o.undofile = true
 vim.o.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+vim.o.swapfile = false
+vim.o.backup = false
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.o.ignorecase = true
@@ -823,7 +830,7 @@ require('lazy').setup({
         local formatters = {
           lua = { 'stylua' },
           c = { 'clang_format' },
-          go = { 'gofumpt' },
+          go = { 'gofmt' },
         }
 
         local web_filetypes = {
